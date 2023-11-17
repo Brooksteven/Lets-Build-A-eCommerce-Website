@@ -71,9 +71,14 @@ li {
 }
 
 /*here we are targeting the books link and listing none so when we hover over it a underline doesnt appear.*/
+/*also this styling needs to come after the styling of the other links so it can have priority because if it comes before then it won't work and instead the line under all the links including books will show.LEARN PRIORITY! unless you do this
+.nav__link--primary:hover {
+    text-decoration: none !important;}   !important trumps everything, but it's npt good to use unless you really need to use it.*/ 
 .nav__link--primary:hover {
     text-decoration: none;
 }
+
+/*LAMDING PAGE PORTION*/
 
 #landing {
     background-color: rgba(115, 66, 214, 0.1);
