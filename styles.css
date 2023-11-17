@@ -7,51 +7,70 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/*the nav bar general style*/
 nav{
     height: 80px;
     display: flex;
 }
 
+/*this moves and controls the text*/
 .nav__container {
     width: 100%;
     max-width: 1200px;
+    /*gives space between the edges so the elements wont touch the sides. you dont want that*/
     padding: 0 24px;
+    /*makes nav links go from being under the library image, and moves it form underneath and to the side of the image to the right*/
     display: flex;
+    /*this moves the links to the other side of the page*/
     justify-content: space-between;
+    /*this brings everything in tha nav section towards the middle */
     align-items: center;
+    /*this will stop the nav image and links fromextending to the ends of the page and instead centers it perfectly*/
     margin: 0 auto;
 }
 
+/*make the logo smaller*/
 .logo {
     width: 160px;
 }
 
+/*this makes the links go side by side*/
 ul {
     display: flex;
 }
 
+/*tthis moves the bullet points and underline and removes it*/
 li {
     list-style-type: none;
 }
 
+/*add margin to the left of each link*/
 .nav__link {
     margin-left: 16px;
+    /*this removes the underline*/
     text-decoration: none;
     font-size: 20px;
     color: #7342d6;
+    /*make the link text bold*/
     font-weight: bold;
+    /*add this padding so when adding box around book link there will be space between book link and the box aeround it*/
     padding: 8px;
 }
 
+/*this creates an underline under all the links but we dont want it under the books link so we will target the books style decor and list none*/
 .nav__link:hover {
     text-decoration: underline;
 }
 
+
 .nav__link--primary {
+    /*this creates a box around the book link */
     border: 2px solid #7342d6;
+    /*this makes the box line thicker*/
     border-radius: 4px;
 }
 
+/*here we are targeting the books link and listing none so when we hover over it a underline doesnt appear.*/
 .nav__link--primary:hover {
     text-decoration: none;
 }
