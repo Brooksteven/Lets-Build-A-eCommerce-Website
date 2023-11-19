@@ -13,6 +13,11 @@ nav{
     display: flex;
 }
 
+/*we want all images to be 100% of its parent*/
+img {
+    width: 100%;
+}
+
 /*this moves and controls the text*/
 .nav__container {
     width: 100%;
@@ -27,6 +32,10 @@ nav{
     align-items: center;
     /*this will stop the nav image and links fromextending to the ends of the page and instead centers it perfectly*/
     margin: 0 auto;
+}
+
+.purple {
+    color: #7342d6;
 }
 
 /*make the logo smaller*/
@@ -78,8 +87,42 @@ li {
     text-decoration: none;
 }
 
-/*LAMDING PAGE PORTION*/
+/*LANDING PAGE PORTION*/
 
+/*id is #*/
 #landing {
     background-color: rgba(115, 66, 214, 0.1);
+}
+
+/*here we make the header the height of the page*/
+
+header {
+    height: calc(100vh - 80px);
+}
+
+/*style container here*/
+.header__container {
+    /*this spans the entire width of the page*/
+    width: 100%;
+    /*cap the width at 720px*/
+    max-width: 720px;
+    /*this centers the teext "United States..."*/
+    margin: 0 auto;
+    height: 100%;
+    /*these do nothing until a image is added*/
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 56px;
+    color:#7342d6;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    text-align: center;
 }
