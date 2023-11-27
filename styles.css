@@ -300,6 +300,7 @@ FEATURES
 */
 
 #features {
+    /*vw means vertical width. good for uneven width and height*/
     padding-top: 8vw; 
     background-color: rgba(115, 66, 214, 0.1)
 }
@@ -313,9 +314,49 @@ FEATURES
     width: 25%;
     /*adds space between each book*/
     padding: 24px;
-
 }
 
 .book__img {
     max-height: 380px;
+    /*this goes hand and hand with trasnform: scale(1.03) because it makes the transition smoother instead of abrubt*/
+    transition: all 300ms ease;
+    /*this says what the cursor is hovering over isn't a active link*/
+    /*you can also use cursor: not-allowed; its the same thing as no-drop*/
+    cursor: no-drop;
+}
+
+/*set margin between images and stars*/
+.book__img--wrapper {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+}
+
+/*when hovering over the different books the book img will become animated and expand by 3%=1.03*/
+/*if you remove .book:hover and just put .book__img, then it wont transform/animate/expand*/
+.book:hover .book__img {
+    transform: scale(1.03);
+}
+
+.book__title {
+    font-size: 20px;
+    /*adds space under the title (space between title and stars)*/
+    margin-bottom: 8px;
+}
+
+.book__title:hover {
+    text-decoration: underline;
+    cursor: no-drop;
+}
+
+.book__ratings {
+    margin-bottom: 8px;
+    color: #fabf2a
+}
+
+.book__price--normal {
+    text-decoration: line-through;
+    padding-right: 6px;
+    color: #bfbfbf;
 }
