@@ -19,30 +19,32 @@
                 <li><a href="#" class="nav__link">Contact</a></li>
                 <li><a href="#" class="nav__link nav__link--primary">Books</a></li>
             </ul>
-          </div>
-
+          
+          <!-- we have to put the menu button and menu elements inside the nav section so it will have all the correct padding and margin-->  
           <!-- THIS IS THE DROP DOWN MENU IN THE NAV BAR SECTION-->
-          <button class="btn__menu">
+          <button class="btn__menu" onclick="openMenu()">
             <!-- font awesome 3 bar menu dropper-->
             <i class="fas fa-bars"></i>
           </button>
           <div class="menu__backdrop">
-            <button class="btn__menu btn__menu--close">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
               <!-- this is the close icon -->
               <i class="fas fa-times"></i>
             </button>
             <ul class="menu__links">
               <li class="menu__list">
-                <a href="#" class="menu__link">Home</a>
+                <!--add onclick="closeMenu()" here so when you click the home link in the open menu it will close the menu and go home. same for the books link-->
+                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
               </li>
               <li class="menu__list">
-                <a href="#features" class="menu__link">Books</a>
+                <a href="#features" class="menu__link" onclick="closeMenu()">Books</a>
               </li>
               <li class="menu__list">
-                <a class="menu__link no-cursor">Contacts</a>
+                <a class="menu__link no-cursor" onclick="closeMenu()">Contacts</a>
               </li>
             </ul>
           </div>
+        </div>
         </nav>
         <header>
           <!--Here we add a container just so this section wont spread to the ends of the page. Its more controlled and apealing.-->

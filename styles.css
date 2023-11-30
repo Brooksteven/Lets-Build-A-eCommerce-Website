@@ -125,6 +125,8 @@ li {
     text-align: center;
     border: none;
     color: #7342d6;
+    /*here we hide the menu button with display none unless the page is less then 550px*/
+    display: none;
 }
 
 /*this allows us to style the dropdown menu when its open*/
@@ -139,8 +141,27 @@ li {
     bottom: 0;
     z-index: 100;
     display: flex;
+    /*we remove display: flex form here to .menu--open .menu__backdrop because we have display: none here which is the common state we want everything to be in when scrolling on the page*/
     justify-content: center;
     align-items: center;
+    /*here is the animation we can finally add for the opening and closing of the menu*/
+    transition: /*opacity (do all instead of opacity so when you close the menu it also closes smoothly and not just opens smoothly)*/ all 300ms ease;
+    /*we want to animate the opening and closing of the menu button to be smooth; however you can't animate display: none. So a trick is to do display: flex; visibility: hidden; opacity: 0; here and then do visibility: visible; and opacity: 1; under .menu__open .menu__backdrop*/
+    /*display: none;*/
+    visibility: hidden;
+    opacity: 0;
+}
+
+.menu--open .menu__backdrop{
+    visibility: visible;
+    opacity: 1;
+    /*display: flex*/
+}
+
+/*we dont want the user to be able to scroll down while the menu tab is open so this is what we do to stop that*/
+.menu--open {
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 .menu__links {
@@ -320,7 +341,7 @@ HIGHLIGHTS
 
 .highlight__wrapper {
     display: flex;
-    
+    flex-wrap: wrap;
     
 }
 
@@ -334,7 +355,7 @@ HIGHLIGHTS
     w/o fdc aic would center vertically and jcc would center horizontally. with this being said idk why we use fdc here if aic and jcc already covers items being centered horizontally and vertically just the other way instead of switch!!!*/
     display: flex;
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
     flex-direction: column;
 }
 
@@ -369,6 +390,8 @@ HIGHLIGHTS
     font-size: 20px;
     /*this creates space under the Easy and Quick text*/
     margin-bottom: 16px;
+    /*we removed justify content: center; under .highlight and then added text-align: center so when our website is being looked at off a smaller screen like a smartphone, the text for the library section wont be unaligned*/
+    text-align: center;
 }
 
 /*
@@ -486,4 +509,53 @@ TO FIX THIS JUST TARGET THE FIGURE CLASS BY ITSELF AND DO DISPLAY: FLEX; TO FIX 
 .footer__link {
     padding: 0 8px; /*8px is left and right spacing*/
 }
+
+/*we are doing this so the menu button wont show at rest (when no one is hovering over it)*/
+
+/*SMALL PHONES, TABLETS, LARGE SMARTPHONES*/
+@media (max-width: 768px) {
+    .header__description {
+        padding: 0 24px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+
+    .book {
+        width: 50%;
+    }
+}
+
+
+/*SMALL PHONES, LARGE SMARTPHONES*/
+@media (max-width: 550px) {
+    /*this allows for us not to see the menu button while the links are visible. as soon as the page becomes less than 550px then the links go away and the menu button appears*/
+    .btn__menu {
+        display: block;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    /*here we dont want calc(100% / 3), at max-width: 550px; we want it to be 100%. however this wont work unless we add flex-wrap: wrap; on the parent which is .highlight__wrapper up above.*/
+    .highlight {
+        width: 100%;
+    }
+
+    /*here we added margin-bottom: 24px; to each of the highlights except the last one which is Affordable because it created to much white space underneath and didnt look like a smooth transition to featured books.*/
+    .highlight:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
 
